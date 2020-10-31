@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header>
+  <ion-toolbar class="bg-color">
+    <ion-buttons *ngIf="isConnect" slot="start">
+      <ion-back-button class="text-color" defaultHref="" (click)="backToMainPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-color">
+      Wifi Booster Setup
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <!-- <ion-header collapse="condense" class="bg-color">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Wifi Booster Setup</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <section *ngIf="!isConnect">
+      <img src="./assets/EXTENDER1.gif" alt="">
+      <ion-button (click)="onStartConnecting()" expand="block"
+        class="ios button button-block button-solid ion-activatable ion-focusable hydrated bg-color">
+        Click to start connecting...
+      </ion-button>
+    </section>
+
+    <ng-container *ngIf="isConnect">
+      <iframe [src]="url" class="iframe" scrolling="yes" frameborder="0"></iframe>
+    </ng-container>
   </div>
 </ion-content>

@@ -1,5 +1,7 @@
 {
-  "name": "routerSetup",
-  "integrations": {},
+  "name": "Wifi Booster Setup",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
